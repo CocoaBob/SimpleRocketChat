@@ -14,8 +14,8 @@ import SimpleImageViewer
 final class ChatViewController: SLKTextViewController {
     
     // Class methods
-    class func instantiate() -> ChatViewController {
-        return UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+    static var shared: ChatViewController? {
+         return UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController
     }
 
     var activityIndicator: LoaderView!
@@ -135,14 +135,6 @@ final class ChatViewController: SLKTextViewController {
     }
 
     // MARK: View Life Cycle
-
-    static var shared: ChatViewController? {
-        if let nav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController {
-            return nav.viewControllers.first as? ChatViewController
-        }
-
-        return nil
-    }
 
     deinit {
         NotificationCenter.default.removeObserver(self)

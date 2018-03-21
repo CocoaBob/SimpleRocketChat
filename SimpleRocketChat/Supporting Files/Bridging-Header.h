@@ -16,3 +16,4 @@
 //@import Photos;
 //@import StoreKit;
 @import UIKit;
+@import UserNotifications;
