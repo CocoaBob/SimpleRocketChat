@@ -183,10 +183,15 @@ final class ChatViewController: SLKTextViewController {
 
         if !SocketManager.isConnected() {
             socketDidDisconnect(socket: SocketManager.sharedInstance)
-            reconnect()
+            reconnect() {
+                if self.subscription == nil {
+                    self.subscription = .initialSubscription()
+                }
+            }
+        } else {
+            subscription = .initialSubscription()
         }
 
-        subscription = .initialSubscription()
 
         view.bringSubview(toFront: activityIndicatorContainer)
         view.bringSubview(toFront: buttonScrollToBottom)
@@ -205,13 +210,13 @@ final class ChatViewController: SLKTextViewController {
         keyboardFrame?.updateFrame()
     }
 
-    @objc internal func reconnect() {
+    @objc internal func reconnect(_ completion: (()->())? = nil) {
         chatHeaderViewStatus?.labelTitle.text = localized("connection.connecting.banner.message")
         chatHeaderViewStatus?.activityIndicator.startAnimating()
         chatHeaderViewStatus?.buttonRefresh.isHidden = true
 
         if !SocketManager.isConnected() {
-            SocketManager.reconnect()
+            SocketManager.reconnect(completion)
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {

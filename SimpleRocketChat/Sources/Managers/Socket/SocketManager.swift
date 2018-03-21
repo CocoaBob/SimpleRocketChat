@@ -127,7 +127,7 @@ class SocketManager {
 
 extension SocketManager {
 
-    static func reconnect() {
+    static func reconnect(_ completion: (()->())? = nil) {
         guard let auth = AuthManager.isAuthenticated() else { return }
 
         AuthManager.resume(auth, completion: { (response) in
@@ -155,6 +155,8 @@ extension SocketManager {
                 if let userIdentifier = auth.userId {
                     PushManager.updateUser(userIdentifier)
                 }
+                
+                completion?()
             })
         })
     }
