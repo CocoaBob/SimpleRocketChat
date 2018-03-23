@@ -156,6 +156,7 @@ final class ChatViewController: SLKTextViewController {
 
         collectionView?.isPrefetchingEnabled = true
         collectionView?.keyboardDismissMode = .interactive
+        collectionView?.alwaysBounceVertical = true
         enableInteractiveKeyboardDismissal()
 
         isInverted = false
@@ -175,13 +176,9 @@ final class ChatViewController: SLKTextViewController {
 
         if !SocketManager.isConnected() {
             socketDidDisconnect(socket: SocketManager.sharedInstance)
-            reconnect() {
-                if self.subscription == nil {
-                    self.subscription = .initialSubscription()
-                }
-            }
+            reconnect()
         } else {
-            subscription = .initialSubscription()
+            subscription = nil
         }
 
 

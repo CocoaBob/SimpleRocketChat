@@ -184,19 +184,19 @@ final class ChatDataController {
         }
 
         // Has loader?
-        let loaders = data.filter({ $0.type == .loader })
-        if loadedAllMessages {
-            for (idx, obj) in loaders.enumerated() {
-                data.remove(at: idx)
-                removedIndexPaths.append(obj.indexPath)
-            }
-        } else {
-            if loaders.count == 0 {
-                let obj = ChatData(type: .loader, timestamp: Date(timeIntervalSince1970: 0))
-                newItems.append(obj)
-                identifiers.append(obj.identifier)
-            }
-        }
+//        let loaders = data.filter({ $0.type == .loader })
+//        if loadedAllMessages {
+//            for (idx, obj) in loaders.enumerated() {
+//                data.remove(at: idx)
+//                removedIndexPaths.append(obj.indexPath)
+//            }
+//        } else {
+//            if loaders.count == 0 {
+//                let obj = ChatData(type: .loader, timestamp: Date(timeIntervalSince1970: 0))
+//                newItems.append(obj)
+//                identifiers.append(obj.identifier)
+//            }
+//        }
 
         func needsUnreadSeparator(_ obj: ChatData) -> Bool {
             if obj.timestamp > lastSeen && !unreadSeparator {
