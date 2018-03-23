@@ -24,7 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup AuthManager
         self.setupAuthManager() {
-            self.showChatViewController()
+            self.showHomeViewController()
+            
+            // Try create a direct message
+            func createDirectMessage() {
+                AppManager.openDirectMessage(username: "jiyun") {
+                    if let chatVC = ChatViewController.shared {
+                        (self.window?.rootViewController as? UINavigationController)?.pushViewController(chatVC, animated: true)
+                    }
+                }
+            }
+            if !SocketManager.isConnected() {
+                SocketManager.reconnect({
+                    createDirectMessage()
+                })
+            } else {
+                createDirectMessage()
+            }
         }
         
         return true
@@ -67,6 +83,12 @@ extension AppDelegate {
         self.window?.makeKeyAndVisible()
     }
     
+    func showHomeViewController() {
+        if let vc = SubscriptionsViewController.shared {
+            self.window?.rootViewController = UINavigationController(rootViewController: vc)
+        }
+    }
+    
     func showChatViewController() {
         if let vc = ChatViewController.shared {
             self.window?.rootViewController = UINavigationController(rootViewController: vc)
@@ -87,8 +109,8 @@ extension AppDelegate {
             auth.lastSubscriptionFetch = nil
             auth.lastAccess = Date()
             auth.serverURL = "wss://test-im.soyou.io/websocket"
-            auth.token = "01UzMuqCz06NtTPb1qgTTs-lfxXU6uYx4MEMWhgsqkj"
-            auth.userId = "czfJCwRY3gqSi5LuN"
+            auth.token = "gj3ef2ijsOs7sxir7iPf-8NVSNGeIxeCjVMSFUEAoZ1"
+            auth.userId = "JAqNKpngJ8ub4egBM"
             
             Realm.executeOnMainThread({ (realm) in
                 // Delete all the Auth objects, since we don't

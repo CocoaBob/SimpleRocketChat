@@ -36,56 +36,6 @@ struct SubscriptionManager {
             "params": params
         ] as [String: Any]
 
-        let requestRooms = [
-            "msg": "method",
-            "method": "rooms/get",
-            "params": params
-        ] as [String: Any]
-
-        func executeRoomsRequest() {
-            SocketManager.send(requestRooms) { response in
-                guard !response.isError() else { return Log.debug(response.result.string) }
-
-                Realm.execute({ realm in
-                    guard let auth = AuthManager.isAuthenticated() else { return }
-                    auth.lastSubscriptionFetch = Date.serverDate.addingTimeInterval(-1)
-                    realm.add(auth, update: true)
-                })
-
-                let subscriptions = List<Subscription>()
-
-                // List is used the first time user opens the app
-                let list = response.result["result"].array
-
-                // Update is used on updates
-                let updated = response.result["result"]["update"].array
-
-                Realm.execute({ realm in
-                    list?.forEach { object in
-                        if let rid = object["_id"].string {
-                            if let subscription = Subscription.find(rid: rid, realm: realm) {
-                                subscription.mapRoom(object)
-                                subscriptions.append(subscription)
-                            }
-                        }
-                    }
-
-                    updated?.forEach { object in
-                        if let rid = object["_id"].string {
-                            if let subscription = Subscription.find(rid: rid, realm: realm) {
-                                subscription.mapRoom(object)
-                                subscriptions.append(subscription)
-                            }
-                        }
-                    }
-
-                    realm.add(subscriptions, update: true)
-                }, completion: {
-                    completion(response)
-                })
-            }
-        }
-
         SocketManager.send(requestSubscriptions) { response in
             guard !response.isError() else { return Log.debug(response.result.string) }
 
@@ -129,10 +79,8 @@ struct SubscriptionManager {
 
                 realm.add(subscriptions, update: true)
                 realm.add(auth, update: true)
-
-                DispatchQueue.main.async {
-                    executeRoomsRequest()
-                }
+            }, completion: {
+                completion(response)
             })
         }
     }

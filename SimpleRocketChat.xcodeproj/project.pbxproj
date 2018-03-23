@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450CB5ED2064565600A570DB /* Subscriptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450CB5EC2064565600A570DB /* Subscriptions.storyboard */; };
+		452E30D420631DF6008D33FC /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */; };
 		45D4D0D9205F06D7000CE769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D4205F06D6000CE769 /* Assets.xcassets */; };
 		45D4D0DA205F06D7000CE769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */; };
 		45D4D0DB205F06D7000CE769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D0D7205F06D7000CE769 /* AppDelegate.swift */; };
@@ -230,6 +232,8 @@
 /* Begin PBXFileReference section */
 		1E16D6EB1FF6F238664A8ADA /* Pods-SimpleRocketChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleRocketChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleRocketChat/Pods-SimpleRocketChat.debug.xcconfig"; sourceTree = "<group>"; };
 		33104F09865198A4586C7006 /* Pods_SimpleRocketChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleRocketChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		450CB5EC2064565600A570DB /* Subscriptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subscriptions.storyboard; sourceTree = "<group>"; };
+		452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		4579E82F205E2A0400EDFE4C /* SimpleRocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D4D0D1205F06D6000CE769 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		45D4D0D2205F06D6000CE769 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -542,6 +546,7 @@
 				45D4D5E0205F317B000CE769 /* ChatControllerMessageActions.swift */,
 				45D4D5E5205F317B000CE769 /* ChatControllerDocuments.swift */,
 				45D4D5E4205F317B000CE769 /* ChatControllerReplyHandler.swift */,
+				452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -549,18 +554,18 @@
 		45D4D3FC205F0DC0000CE769 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				45D4D400205F0DC0000CE769 /* Base */,
+				45D4D407205F0DC0000CE769 /* CustomFields */,
+				45D4D40C205F0DC0000CE769 /* Handler */,
+				45D4D411205F0DC0000CE769 /* Mapping */,
 				45D4D3FD205F0DC0000CE769 /* Attachment.swift */,
 				45D4D3FE205F0DC0000CE769 /* Auth.swift */,
 				45D4D3FF205F0DC0000CE769 /* AuthSettings.swift */,
-				45D4D400205F0DC0000CE769 /* Base */,
 				45D4D404205F0DC0000CE769 /* Channel.swift */,
 				45D4D405205F0DC0000CE769 /* Command.swift */,
 				45D4D406205F0DC0000CE769 /* CustomEmoji.swift */,
-				45D4D407205F0DC0000CE769 /* CustomFields */,
 				45D4D40B205F0DC0000CE769 /* Email.swift */,
-				45D4D40C205F0DC0000CE769 /* Handler */,
 				45D4D410205F0DC0000CE769 /* LoginService.swift */,
-				45D4D411205F0DC0000CE769 /* Mapping */,
 				45D4D41D205F0DC0000CE769 /* Mention.swift */,
 				45D4D41E205F0DC0000CE769 /* Message.swift */,
 				45D4D41F205F0DC0000CE769 /* MessageReaction.swift */,
@@ -731,21 +736,21 @@
 		45D4D4BE205F0EA0000CE769 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				45D4D50A205F10CE000CE769 /* Helpers */,
+				45D4D4C3205F0EA0000CE769 /* Launcher */,
+				45D4D4CC205F0EA0000CE769 /* Model */,
+				45D4D4DB205F0EA0000CE769 /* Socket */,
+				45D4D4E2205F0EA0000CE769 /* Uploader */,
 				45D4D4BF205F0EA0000CE769 /* AppManager.swift */,
-				45D4D51E205F1114000CE769 /* MarkdownManager.swift */,
 				45D4D4C0205F0EA0000CE769 /* DatabaseManager.swift */,
 				45D4D4C1205F0EA0000CE769 /* DownloadManager.swift */,
 				45D4D4C2205F0EA0000CE769 /* DraftMessageManager.swift */,
-				45D4D4C3205F0EA0000CE769 /* Launcher */,
 				45D4D4C9205F0EA0000CE769 /* LogManager.swift */,
+				45D4D51E205F1114000CE769 /* MarkdownManager.swift */,
 				45D4D4CB205F0EA0000CE769 /* MessageTextCacheManager.swift */,
-				45D4D4CC205F0EA0000CE769 /* Model */,
-				45D4D50A205F10CE000CE769 /* Helpers */,
 				45D4D4D5205F0EA0000CE769 /* NetworkManager.swift */,
 				45D4D4D7205F0EA0000CE769 /* PushManager.swift */,
 				45D4D4DA205F0EA0000CE769 /* ServerManager.swift */,
-				45D4D4DB205F0EA0000CE769 /* Socket */,
-				45D4D4E2205F0EA0000CE769 /* Uploader */,
 				45D4D4E6205F0EA0000CE769 /* UserReviewManager.swift */,
 			);
 			path = Managers;
@@ -904,6 +909,7 @@
 			isa = PBXGroup;
 			children = (
 				45D4D560205F2F7F000CE769 /* Chat.storyboard */,
+				450CB5EC2064565600A570DB /* Subscriptions.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -1037,11 +1043,11 @@
 			isa = PBXGroup;
 			children = (
 				45D4D5EF205F3846000CE769 /* API */,
+				45D4D5F5205F3846000CE769 /* Models */,
 				45D4D5F1205F3846000CE769 /* ArrayExtensions.swift */,
 				45D4D5F2205F3846000CE769 /* DataExtension.swift */,
 				45D4D5F3205F3846000CE769 /* DateExtension.swift */,
 				45D4D5F4205F3846000CE769 /* DictionaryExtensions.swift */,
-				45D4D5F5205F3846000CE769 /* Models */,
 				45D4D5FA205F3846000CE769 /* NSAttributedStringExtensions.swift */,
 				45D4D5FB205F3846000CE769 /* NSRangeExtensions.swift */,
 				45D4D5FC205F3846000CE769 /* RealmExtension.swift */,
@@ -1173,6 +1179,7 @@
 				45D4D5B2205F305D000CE769 /* ChatMessageAudioView.xib in Resources */,
 				45D4D5AD205F305D000CE769 /* ChatDirectMessageHeaderCell.xib in Resources */,
 				45D4D555205F1467000CE769 /* ReactionListView.xib in Resources */,
+				450CB5ED2064565600A570DB /* Subscriptions.storyboard in Resources */,
 				45D4D544205F1467000CE769 /* RCEmojiKit.strings in Resources */,
 				45D4D54E205F1467000CE769 /* EmojiCollectionViewCell.xib in Resources */,
 				45D4D550205F1467000CE769 /* EmojiPicker.xib in Resources */,
@@ -1380,6 +1387,7 @@
 				45D4D572205F303C000CE769 /* ChatTitleView.swift in Sources */,
 				45D4D4AF205F0E43000CE769 /* CommandsRequest.swift in Sources */,
 				45D4D4FC205F0EA0000CE769 /* NetworkManager.swift in Sources */,
+				452E30D420631DF6008D33FC /* SubscriptionsViewController.swift in Sources */,
 				45D4D4EF205F0EA0000CE769 /* PersistencyCoordinator.swift in Sources */,
 				45D4D574205F303C000CE769 /* ChatTitleViewModel.swift in Sources */,
 				45D4D5B7205F305D000CE769 /* ChatMessageImageView.swift in Sources */,

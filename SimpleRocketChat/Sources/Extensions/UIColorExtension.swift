@@ -70,7 +70,7 @@ extension UIColor {
     }
 
     static func RCInvisible() -> UIColor {
-        return UIColor(rgb: 0xCBCED1, alphaVal: 1)
+        return UIColor(rgb: 0x808080, alphaVal: 1)
     }
 
     // MARK: Theme color

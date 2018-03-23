@@ -12,9 +12,9 @@ final class SubscriptionCell: UITableViewCell {
 
     static let identifier = "CellSubscription"
 
-    internal let labelSelectedTextColor = UIColor(rgb: 0xFFFFFF, alphaVal: 1)
-    internal let labelReadTextColor = UIColor(rgb: 0x9ea2a4, alphaVal: 1)
-    internal let labelUnreadTextColor = UIColor(rgb: 0xFFFFFF, alphaVal: 1)
+    internal let labelSelectedTextColor = UIColor(rgb: 0x000000, alphaVal: 1)
+    internal let labelReadTextColor = UIColor(rgb: 0x585b5c, alphaVal: 1)
+    internal let labelUnreadTextColor = UIColor(rgb: 0x000000, alphaVal: 1)
 
     internal let defaultBackgroundColor = UIColor.clear
     internal let selectedBackgroundColor = UIColor(rgb: 0x0, alphaVal: 0.18)
