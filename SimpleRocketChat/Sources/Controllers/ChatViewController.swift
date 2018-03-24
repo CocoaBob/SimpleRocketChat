@@ -272,8 +272,7 @@ final class ChatViewController: SLKTextViewController {
         }
 
         let autoCompletionViewCells: [NibCellIndentifier] = [
-            (nibName: "AutocompleteCell", cellIdentifier: AutocompleteCell.identifier),
-            (nibName: "EmojiAutocompleteCell", cellIdentifier: EmojiAutocompleteCell.identifier)
+            (nibName: "AutocompleteCell", cellIdentifier: AutocompleteCell.identifier)
         ]
 
         autoCompletionViewCells.forEach {

@@ -22,7 +22,7 @@ extension Message {
 
     // swiftlint:disable function_body_length cyclomatic_complexity
     func textNormalized() -> String {
-        let text = Emojione.transform(string: self.text)
+        let text = self.text
 
         switch type {
         case .roomNameChanged:
@@ -145,7 +145,6 @@ extension Message {
 
             return String(format: format, self.reactions.reduce("") {
                 return $0 + """
-                \(Emojione.transform(string: $1.emoji ?? ""))
                 \($1.usernames.count): \($1.usernames.joined(separator: ", "))
 
                 """

@@ -109,7 +109,7 @@ extension AppDelegate {
             auth.lastSubscriptionFetch = nil
             auth.lastAccess = Date()
             auth.serverURL = "wss://test-im.soyou.io/websocket"
-            auth.token = "gj3ef2ijsOs7sxir7iPf-8NVSNGeIxeCjVMSFUEAoZ1"
+            auth.token = "pRVKliKQGUbZBRupQr26AGI5MsAyJPfaovPWEvF2Jq7"
             auth.userId = "JAqNKpngJ8ub4egBM"
             
             Realm.executeOnMainThread({ (realm) in

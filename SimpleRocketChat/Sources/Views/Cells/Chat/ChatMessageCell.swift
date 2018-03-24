@@ -12,7 +12,6 @@ protocol ChatMessageCellProtocol: ChatMessageURLViewProtocol, ChatMessageVideoVi
     func openURL(url: URL)
     func handleLongPressMessageCell(_ message: Message, view: UIView, recognizer: UIGestureRecognizer)
     func handleUsernameTapMessageCell(_ message: Message, view: UIView, recognizer: UIGestureRecognizer)
-    func handleLongPress(reactionListView: ReactionListView, reactionView: ReactionView)
 }
 
 final class ChatMessageCell: UICollectionViewCell {
@@ -69,22 +68,6 @@ final class ChatMessageCell: UICollectionViewCell {
     @IBOutlet weak var mediaViews: UIStackView!
     @IBOutlet weak var mediaViewsHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var reactionsListView: ReactionListView! {
-        didSet {
-            reactionsListView.reactionTapRecognized = { view, sender in
-                MessageManager.react(self.message, emoji: view.model.emoji, completion: { _ in })
-
-                if self.isAddingReaction(emoji: view.model.emoji) {
-                    UserReviewManager.shared.requestReview()
-                }
-            }
-
-            reactionsListView.reactionLongPressRecognized = { view, sender in
-                self.delegate?.handleLongPress(reactionListView: self.reactionsListView, reactionView: view)
-            }
-        }
-    }
-
     private func isAddingReaction(emoji tappedEmoji: String) -> Bool {
         guard let currentUser = AuthManager.currentUser()?.username else {
             return false
@@ -96,8 +79,6 @@ final class ChatMessageCell: UICollectionViewCell {
 
         return true
     }
-
-    @IBOutlet weak var reactionsListViewConstraint: NSLayoutConstraint!
 
     static func cellMediaHeightFor(message: Message, width: CGFloat, sequential: Bool = true) -> CGFloat {
         let fullWidth = width
@@ -283,7 +264,6 @@ final class ChatMessageCell: UICollectionViewCell {
         }
 
         avatarView.user = message.user
-        avatarView.emoji = message.emoji
 
         if let avatar = message.avatar {
             avatarView.avatarURL = URL(string: avatar)
@@ -307,40 +287,6 @@ final class ChatMessageCell: UICollectionViewCell {
             }
 
             labelText.message = text
-        }
-    }
-
-    fileprivate func updateReactions() {
-        let username = AuthManager.currentUser()?.username
-
-        let models = Array(message.reactions.map { reaction -> ReactionViewModel in
-            let highlight: Bool
-            if let username = username {
-                highlight = reaction.usernames.contains(username)
-            } else {
-                highlight = false
-            }
-
-            let emoji = reaction.emoji ?? "?"
-            let imageUrl = CustomEmoji.withShortname(emoji)?.imageUrl()
-
-            return ReactionViewModel(
-                emoji: emoji,
-                imageUrl: imageUrl,
-                count: reaction.usernames.count.description,
-                highlight: highlight,
-                reactors: Array(reaction.usernames)
-            )
-        })
-
-        reactionsListView.model = ReactionListViewModel(reactionViewModels: models)
-
-        if message.reactions.count > 0 {
-            reactionsListView.isHidden = false
-            reactionsListViewConstraint.constant = 40
-        } else {
-            reactionsListView.isHidden = true
-            reactionsListViewConstraint.constant = 0
         }
     }
 
@@ -372,7 +318,6 @@ final class ChatMessageCell: UICollectionViewCell {
         updateMessageContent()
         insertGesturesIfNeeded()
         insertAttachments()
-        updateReactions()
     }
 
     @objc func handleLongPressMessageCell(recognizer: UIGestureRecognizer) {

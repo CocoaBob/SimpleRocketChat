@@ -38,10 +38,6 @@ extension ChatViewController {
     func actionsForMessage(_ message: Message, view: UIView) -> [UIAlertAction] {
         guard let messageUser = message.user else { return [] }
 
-        let react = UIAlertAction(title: localized("chat.message.actions.react"), style: .default, handler: { _ in
-            self.react(message: message, view: view)
-        })
-
         let pinMessage = message.pinned ? localized("chat.message.actions.unpin") : localized("chat.message.actions.pin")
         let pin = UIAlertAction(title: pinMessage, style: .default, handler: { (_) in
             if message.pinned {
@@ -71,7 +67,7 @@ extension ChatViewController {
             self?.reply(to: message, onlyQuote: true)
         })
 
-        var actions = [react, pin, report, copy, reply, quote]
+        var actions = [pin, report, copy, reply, quote]
 
         if AuthManager.isAuthenticated()?.canBlockMessage(message) == .allowed {
             let block = UIAlertAction(title: localized("chat.message.actions.block"), style: .default, handler: { [weak self] (_) in
@@ -165,32 +161,6 @@ extension ChatViewController {
     }
 
     // MARK: Actions
-
-    fileprivate func react(message: Message, view: UIView) {
-        self.view.endEditing(true)
-
-        let controller = EmojiPickerController()
-        controller.modalPresentationStyle = .popover
-        controller.preferredContentSize = CGSize(width: 600.0, height: 400.0)
-
-        if let presenter = controller.popoverPresentationController {
-            presenter.sourceView = view
-            presenter.sourceRect = view.bounds
-        }
-
-        controller.emojiPicked = { emoji in
-            MessageManager.react(message, emoji: emoji, completion: { _ in })
-            UserReviewManager.shared.requestReview()
-        }
-
-        controller.customEmojis = CustomEmoji.emojis()
-
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            self.navigationController?.pushViewController(controller, animated: true)
-        } else {
-            self.present(controller, animated: true)
-        }
-    }
 
     fileprivate func delete(message: Message) {
         Ask(key: "chat.message.actions.delete.confirm", buttons: [

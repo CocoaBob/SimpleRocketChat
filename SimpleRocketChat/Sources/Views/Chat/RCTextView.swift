@@ -58,44 +58,13 @@ class HighlightLayoutManager: NSLayoutManager {
 @IBDesignable class RCTextView: UIView {
 
     private var textView: UITextView!
-    private var customEmojiViews: [EmojiView] = []
 
     weak var delegate: ChatMessageCellProtocol?
 
     var message: NSAttributedString! {
         didSet {
             textView.attributedText = message
-            updateCustomEmojiViews()
         }
-    }
-
-    func updateCustomEmojiViews() {
-        customEmojiViews.forEach { $0.removeFromSuperview() }
-        customEmojiViews.removeAll()
-
-        message?.enumerateAttributes(in: NSRange(location: 0, length: message.length), options: [], using: { attributes, crange, _ in
-            if let attachment = attributes[NSAttributedStringKey.attachment] as? NSTextAttachment {
-
-                guard let position1 = textView.position(from: textView.beginningOfDocument, offset: crange.location) else { return }
-                guard let position2 = textView.position(from: position1, offset: crange.length) else { return }
-                guard let range = textView.textRange(from: position1, to: position2) else { return }
-
-                let rect = textView.firstRect(for: range)
-
-                let emojiView = EmojiView(frame: rect)
-                emojiView.backgroundColor = .white
-                emojiView.isUserInteractionEnabled = false
-
-                if let imageUrlData = attachment.contents,
-                    let imageUrlString = String(data: imageUrlData, encoding: .utf8),
-                    let imageUrl = URL(string: imageUrlString) {
-                    emojiView.emojiImageView.sd_setImage(with: imageUrl, completed: nil)
-                    customEmojiViews.append(emojiView)
-                }
-
-                self.addSubview(emojiView)
-            }
-        })
     }
 
     override init(frame: CGRect) {
@@ -135,8 +104,6 @@ class HighlightLayoutManager: NSLayoutManager {
         super.layoutSubviews()
 
         textView.frame = bounds
-
-        updateCustomEmojiViews()
     }
 
     override func prepareForInterfaceBuilder() {

@@ -48,28 +48,10 @@ final class AvatarView: UIView {
         }
     }
 
-    var emoji: String? {
-        didSet {
-            if emoji != nil {
-                updateAvatar()
-            }
-        }
-    }
-
     func updateAvatar() {
         setAvatarWithInitials()
 
-        if let emoji = emoji {
-            let emojiCharacter = Emojione.transform(string: emoji)
-
-            if emojiCharacter != emoji {
-                labelInitials.text = emojiCharacter
-            } else if let imageUrl = CustomEmoji.withShortname(emoji)?.imageUrl() {
-                imageURL = URL(string: imageUrl)
-            }
-
-            backgroundColor = .clear
-        } else if let avatarURL = avatarURL {
+        if let avatarURL = avatarURL {
             self.imageURL = avatarURL
         } else if let avatarURL = user?.avatarURL() {
             self.imageURL = avatarURL
@@ -146,7 +128,6 @@ final class AvatarView: UIView {
         avatarURL = nil
         imageURL = nil
         user = nil
-        emoji = nil
 
         imageView.image = nil
         imageView.animatedImage = nil
