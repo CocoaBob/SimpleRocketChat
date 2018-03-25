@@ -6,6 +6,8 @@
 //  Copyright © 2018 Rocket.Chat. All rights reserved.
 //
 
+import UIKit
+
 protocol Asker: class {
     func ask(title: String, message: String, buttons: [(title: String, handler: ((UIAlertAction) -> Void)?)], deleteOption: Int8)
 }

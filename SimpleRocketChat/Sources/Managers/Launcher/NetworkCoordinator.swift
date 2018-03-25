@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct NetworkCoordinator: LauncherProtocol {
     func prepareToLaunch(with options: [UIApplicationLaunchOptionsKey: Any]?) {

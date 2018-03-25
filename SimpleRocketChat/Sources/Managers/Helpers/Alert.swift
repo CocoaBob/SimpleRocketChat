@@ -6,6 +6,8 @@
 //  Copyright © 2017 Rocket.Chat. All rights reserved.
 //
 
+import UIKit
+
 protocol Alerter: class {
     func alert(title: String, message: String, handler: ((UIAlertAction) -> Void)?)
 }

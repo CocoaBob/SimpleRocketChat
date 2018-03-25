@@ -6,6 +6,8 @@
 //  Copyright © 2018 Rocket.Chat. All rights reserved.
 //
 
+import UIKit
+
 class ChatMessageAttachmentView: UIView {
     class var defaultHeight: CGFloat {
         return 0

@@ -210,7 +210,6 @@
 		450CB5EC2064565600A570DB /* Subscriptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subscriptions.storyboard; sourceTree = "<group>"; };
 		452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		4579E82F205E2A0400EDFE4C /* SimpleRocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		45D4D0D1205F06D6000CE769 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		45D4D0D2205F06D6000CE769 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D4D0D4205F06D6000CE769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -442,7 +441,6 @@
 		45D4D0D0205F06D6000CE769 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				45D4D0D1205F06D6000CE769 /* Bridging-Header.h */,
 				45D4D0D2205F06D6000CE769 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -1468,7 +1466,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cocoabob.SimpleRocketChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/ModuleMap/CommonCrypto";
-				SWIFT_OBJC_BRIDGING_HEADER = "SimpleRocketChat/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1486,7 +1483,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cocoabob.SimpleRocketChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/ModuleMap/CommonCrypto";
-				SWIFT_OBJC_BRIDGING_HEADER = "SimpleRocketChat/Supporting Files/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

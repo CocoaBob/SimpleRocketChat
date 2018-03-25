@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ReplyView: UIView {
     @IBOutlet weak var username: UILabel!

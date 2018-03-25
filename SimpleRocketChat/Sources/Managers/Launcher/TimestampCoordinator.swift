@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct TimestampCoordinator: LauncherProtocol {
     func prepareToLaunch(with options: [UIApplicationLaunchOptionsKey: Any]?) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HighlightLayoutManager: NSLayoutManager {
     override func fillBackgroundRectArray(_ rectArray: UnsafePointer<CGRect>, count rectCount: Int, forCharacterRange charRange: NSRange, color: UIColor) {
