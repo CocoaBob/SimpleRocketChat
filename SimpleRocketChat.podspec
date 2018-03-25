@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.resource          = "SimpleRocketChat/Resources/Assets.xcassets"
   s.framework         = "Foundation", "UIKit", "UserNotifications"
   s.requires_arc      = true
-  s.xcconfig          = { 'SWIFT_INCLUDE_PATHS' => '${POD_ROOT}/ModuleMap/CommonCrypto' } 
-  s.preserve_paths    = "${POD_ROOT}/ModuleMap/CommonCrypto/module.modulemap"
+  s.xcconfig          = { 'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/SimpleRocketChat/ModuleMap/CommonCrypto' } 
+  s.preserve_paths    = "ModuleMap/CommonCrypto/module.modulemap"
   s.dependency        "SwiftyJSON"
   s.dependency        "SlackTextViewController"
   s.dependency        "MobilePlayer"
