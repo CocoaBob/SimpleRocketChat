@@ -146,7 +146,7 @@ extension PushManager {
         }
 
         // side effect: needed for Subscription.notificationSubscription()
-        AppManager.initialRoomId = notification.roomId
+        RocketChatManager.initialRoomId = notification.roomId
 
         ChatViewController.shared?.subscription = .notificationSubscription()
 

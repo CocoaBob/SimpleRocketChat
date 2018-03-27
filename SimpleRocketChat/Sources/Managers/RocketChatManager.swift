@@ -1,5 +1,5 @@
 //
-//  AppManager.swift
+//  RocketChatManager.swift
 //  Rocket.Chat
 //
 //  Created by Rafael Kellermann Streit on 10/10/17.
@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-struct AppManager {
+public struct RocketChatManager {
 
     private static let kApplicationServerURLKey = "RC_SERVER_URL"
 
@@ -20,7 +20,7 @@ struct AppManager {
 
      - returns: The custom URL, if this app has some URL fixed in the settings.
      */
-    static var applicationServerURL: URL? {
+    public static var applicationServerURL: URL? {
         if let serverURL = Bundle.main.object(forInfoDictionaryKey: kApplicationServerURLKey) as? String {
             return URL(string: serverURL)
         }
@@ -33,7 +33,7 @@ struct AppManager {
 
      - returns: If the server supports multi-server feature.
      */
-    static var supportsMultiServer: Bool {
+    public static var supportsMultiServer: Bool {
         return applicationServerURL == nil
     }
 
@@ -42,30 +42,55 @@ struct AppManager {
 
      If set, App will go straight to this room after launching
     */
-    static var initialRoomId: String?
+    public static var initialRoomId: String?
 
 }
 
-extension AppManager {
-
-    static func addServer(serverUrl: String, credentials: DeepLinkCredentials? = nil, roomId: String? = nil) {
-        SocketManager.disconnect { _, _ in }
-        AppManager.initialRoomId = roomId
-//        WindowManager.open(.auth(serverUrl: serverUrl, credentials: credentials))
-    }
-
-    static func changeToOrAddServer(serverUrl: String, credentials: DeepLinkCredentials? = nil, roomId: String? = nil) {
-        addServer(serverUrl: serverUrl, credentials: credentials, roomId: roomId)
-    }
-
-    static func reloadApp() {
-        SocketManager.disconnect { (_, _) in
-            DispatchQueue.main.async {
-//                if AuthManager.isAuthenticated() != nil {
-//                    WindowManager.open(.chat)
-//                } else {
-//                    WindowManager.open(.auth(serverUrl: "", credentials: nil))
-//                }
+// MARK: - Sign In
+public extension RocketChatManager {
+    
+    public static func signIn(socketServerAddress: String, userId: String, token: String, completion: (()->())?) {
+        // Authentication
+        var auth = Auth()
+        
+        if let oldAuth = AuthManager.isAuthenticated() {
+            auth = oldAuth
+        } else {
+            auth.lastSubscriptionFetch = nil
+            auth.lastAccess = Date()
+            auth.serverURL = socketServerAddress
+            auth.userId = userId
+            auth.token = token
+            
+            Realm.executeOnMainThread({ (realm) in
+                // Delete all the Auth objects, since we don't
+                // support multiple-server per database
+                realm.delete(realm.objects(Auth.self))
+                
+                //            PushManager.updatePushToken()
+                realm.add(auth)
+            })
+        }
+        
+        AuthManager.persistAuthInformation(auth)
+        DatabaseManager.changeDatabaseInstance()
+        
+        func updateSettings(_ auth: Auth, _ completion: (()->())?) {
+            AuthSettingsManager.updatePublicSettings(auth, completion: { _ in
+                SocketManager.disconnect({ (_, _) in
+                    completion?()
+                })
+            })
+        }
+        if let socketURL = URL(string: socketServerAddress) {
+            if SocketManager.isConnected() {
+                updateSettings(auth, completion)
+            } else {
+                SocketManager.connect(socketURL) { (_, connected) in
+                    if connected {
+                        updateSettings(auth, completion)
+                    }
+                }
             }
         }
     }
@@ -73,8 +98,10 @@ extension AppManager {
 
 // MARK: Open Rooms
 
-extension AppManager {
-    static func openDirectMessage(username: String, completion: (() -> Void)? = nil) {
+public extension RocketChatManager {
+    
+    public static func openDirectMessage(username: String, completion: (() -> Void)? = nil) {
+        
         func openDirectMessage() -> Bool {
             guard let directMessageRoom = Subscription.find(name: username, subscriptionType: [.directMessage]) else { return false }
 
@@ -102,7 +129,7 @@ extension AppManager {
         })
     }
 
-    static func openChannel(name: String) {
+    public static func openChannel(name: String) {
         func openChannel() -> Bool {
             guard let channel = Subscription.find(name: name, subscriptionType: [.channel]) else { return false }
 
@@ -133,28 +160,5 @@ extension AppManager {
                 _ = openChannel()
             }
         }, errored: nil)
-    }
-}
-
-// MARK: Deep Link
-
-extension AppManager {
-    static func handleDeepLink(_ url: URL) -> DeepLink? {
-        guard let deepLink = DeepLink(url: url) else { return nil }
-        AppManager.handleDeepLink(deepLink)
-        return deepLink
-    }
-
-    static func handleDeepLink(_ deepLink: DeepLink) {
-        switch deepLink {
-        case let .auth(host, credentials):
-            changeToOrAddServer(serverUrl: host, credentials: credentials)
-        case let .room(host, roomId):
-            changeToOrAddServer(serverUrl: host, roomId: roomId)
-        case let .mention(name):
-            openDirectMessage(username: name)
-        case let .channel(name):
-            openChannel(name: name)
-        }
     }
 }

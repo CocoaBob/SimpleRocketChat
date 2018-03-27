@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		450CB5ED2064565600A570DB /* Subscriptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450CB5EC2064565600A570DB /* Subscriptions.storyboard */; };
 		452E30D420631DF6008D33FC /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */; };
+		453F685B206A98400003D3C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F685A206A98400003D3C9 /* AppDelegate.swift */; };
 		45D4D0D9205F06D7000CE769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D4205F06D6000CE769 /* Assets.xcassets */; };
 		45D4D0DA205F06D7000CE769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */; };
-		45D4D0DB205F06D7000CE769 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D0D7205F06D7000CE769 /* AppDelegate.swift */; };
 		45D4D424205F0DC0000CE769 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D3FD205F0DC0000CE769 /* Attachment.swift */; };
 		45D4D425205F0DC0000CE769 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D3FE205F0DC0000CE769 /* Auth.swift */; };
 		45D4D426205F0DC0000CE769 /* AuthSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D3FF205F0DC0000CE769 /* AuthSettings.swift */; };
@@ -75,7 +75,7 @@
 		45D4D4BB205F0E43000CE769 /* SubscriptionMembersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D49E205F0E43000CE769 /* SubscriptionMembersRequest.swift */; };
 		45D4D4BC205F0E43000CE769 /* SubscriptionMessagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D49F205F0E43000CE769 /* SubscriptionMessagesRequest.swift */; };
 		45D4D4BD205F0E43000CE769 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D4A0205F0E43000CE769 /* Version.swift */; };
-		45D4D4E8205F0EA0000CE769 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D4BF205F0EA0000CE769 /* AppManager.swift */; };
+		45D4D4E8205F0EA0000CE769 /* RocketChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D4BF205F0EA0000CE769 /* RocketChatManager.swift */; };
 		45D4D4E9205F0EA0000CE769 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D4C0205F0EA0000CE769 /* DatabaseManager.swift */; };
 		45D4D4EA205F0EA0000CE769 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D4C1205F0EA0000CE769 /* DownloadManager.swift */; };
 		45D4D4EB205F0EA0000CE769 /* DraftMessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D4C2205F0EA0000CE769 /* DraftMessageManager.swift */; };
@@ -209,11 +209,11 @@
 		33104F09865198A4586C7006 /* Pods_SimpleRocketChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleRocketChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450CB5EC2064565600A570DB /* Subscriptions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subscriptions.storyboard; sourceTree = "<group>"; };
 		452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
+		453F685A206A98400003D3C9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SimpleRocketChat/AppDelegate.swift; sourceTree = "<group>"; };
 		4579E82F205E2A0400EDFE4C /* SimpleRocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D4D0D2205F06D6000CE769 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D4D0D4205F06D6000CE769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		45D4D0D7205F06D7000CE769 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D4D3FD205F0DC0000CE769 /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
 		45D4D3FE205F0DC0000CE769 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		45D4D3FF205F0DC0000CE769 /* AuthSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSettings.swift; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		45D4D49E205F0E43000CE769 /* SubscriptionMembersRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionMembersRequest.swift; sourceTree = "<group>"; };
 		45D4D49F205F0E43000CE769 /* SubscriptionMessagesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionMessagesRequest.swift; sourceTree = "<group>"; };
 		45D4D4A0205F0E43000CE769 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		45D4D4BF205F0EA0000CE769 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		45D4D4BF205F0EA0000CE769 /* RocketChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RocketChatManager.swift; sourceTree = "<group>"; };
 		45D4D4C0205F0EA0000CE769 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		45D4D4C1205F0EA0000CE769 /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		45D4D4C2205F0EA0000CE769 /* DraftMessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftMessageManager.swift; sourceTree = "<group>"; };
@@ -421,6 +421,7 @@
 		4579E826205E2A0400EDFE4C = {
 			isa = PBXGroup;
 			children = (
+				453F685A206A98400003D3C9 /* AppDelegate.swift */,
 				45D4D0D3205F06D6000CE769 /* Resources */,
 				45D4D0D6205F06D7000CE769 /* Sources */,
 				45D4D0D0205F06D6000CE769 /* Supporting Files */,
@@ -460,7 +461,6 @@
 		45D4D0D6205F06D7000CE769 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				45D4D0D7205F06D7000CE769 /* AppDelegate.swift */,
 				45D4D47A205F0E43000CE769 /* API */,
 				45D4D5EE205F3846000CE769 /* Extensions */,
 				45D4D3FC205F0DC0000CE769 /* Models */,
@@ -680,7 +680,7 @@
 				45D4D4CC205F0EA0000CE769 /* Model */,
 				45D4D4DB205F0EA0000CE769 /* Socket */,
 				45D4D4E2205F0EA0000CE769 /* Uploader */,
-				45D4D4BF205F0EA0000CE769 /* AppManager.swift */,
+				45D4D4BF205F0EA0000CE769 /* RocketChatManager.swift */,
 				45D4D4C0205F0EA0000CE769 /* DatabaseManager.swift */,
 				45D4D4C1205F0EA0000CE769 /* DownloadManager.swift */,
 				45D4D4C2205F0EA0000CE769 /* DraftMessageManager.swift */,
@@ -1230,7 +1230,7 @@
 				45D4D51C205F10CF000CE769 /* VOLocalized.swift in Sources */,
 				45D4D5C0205F305D000CE769 /* ChatMessageVideoView.swift in Sources */,
 				45D4D503205F0EA0000CE769 /* SocketHandlers.swift in Sources */,
-				45D4D4E8205F0EA0000CE769 /* AppManager.swift in Sources */,
+				45D4D4E8205F0EA0000CE769 /* RocketChatManager.swift in Sources */,
 				45D4D4AE205F0E43000CE769 /* MeRequest.swift in Sources */,
 				45D4D4EA205F0EA0000CE769 /* DownloadManager.swift in Sources */,
 				45D4D429205F0DC0000CE769 /* ModelMappeable.swift in Sources */,
@@ -1274,7 +1274,6 @@
 				45D4D442205F0DC0000CE769 /* MessageReaction.swift in Sources */,
 				45D4D508205F0EA0000CE769 /* UserReviewManager.swift in Sources */,
 				45D4D43B205F0DC0000CE769 /* MessageModelMapping.swift in Sources */,
-				45D4D0DB205F06D7000CE769 /* AppDelegate.swift in Sources */,
 				45D4D60B205F3846000CE769 /* DateExtension.swift in Sources */,
 				45D4D5E8205F317C000CE769 /* ChatControllerAutocomplete.swift in Sources */,
 				45D4D4FA205F0EA0000CE769 /* SubscriptionManager.swift in Sources */,
@@ -1340,6 +1339,7 @@
 				45D4D4F5205F0EA0000CE769 /* AuthSettingsManager.swift in Sources */,
 				45D4D4A1205F0E43000CE769 /* API.swift in Sources */,
 				45D4D5CE205F305D000CE769 /* ChatPreviewModeView.swift in Sources */,
+				453F685B206A98400003D3C9 /* AppDelegate.swift in Sources */,
 				45D4D4A4205F0E43000CE769 /* APIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

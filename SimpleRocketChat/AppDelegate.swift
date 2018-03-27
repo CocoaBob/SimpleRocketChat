@@ -24,12 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupWindow()
         
         // Setup AuthManager
-        self.setupAuthManager() {
+        RocketChatManager.signIn(socketServerAddress: "wss://test-im.soyou.io/websocket",
+                          userId: "JAqNKpngJ8ub4egBM",
+                          token: "pRVKliKQGUbZBRupQr26AGI5MsAyJPfaovPWEvF2Jq7") {
             self.showHomeViewController()
             
             // Try create a direct message
             func createDirectMessage() {
-                AppManager.openDirectMessage(username: "jiyun") {
+                RocketChatManager.openDirectMessage(username: "jiyun") {
                     if let chatVC = ChatViewController.shared {
                         (self.window?.rootViewController as? UINavigationController)?.pushViewController(chatVC, animated: true)
                     }
@@ -94,56 +96,5 @@ extension AppDelegate {
         if let vc = ChatViewController.shared {
             self.window?.rootViewController = UINavigationController(rootViewController: vc)
         }
-    }
-}
-
-// MARK: - Sign In
-extension AppDelegate {
-    
-    func setupAuthManager(_ completion: (()->())?) {
-        // Authentication
-        var auth = Auth()
-        
-        if let oldAuth = AuthManager.isAuthenticated() {
-            auth = oldAuth
-        } else {
-            auth.lastSubscriptionFetch = nil
-            auth.lastAccess = Date()
-            auth.serverURL = "wss://test-im.soyou.io/websocket"
-            auth.token = "pRVKliKQGUbZBRupQr26AGI5MsAyJPfaovPWEvF2Jq7"
-            auth.userId = "JAqNKpngJ8ub4egBM"
-            
-            Realm.executeOnMainThread({ (realm) in
-                // Delete all the Auth objects, since we don't
-                // support multiple-server per database
-                realm.delete(realm.objects(Auth.self))
-                
-                //            PushManager.updatePushToken()
-                realm.add(auth)
-            })
-        }
-        
-        AuthManager.persistAuthInformation(auth)
-        DatabaseManager.changeDatabaseInstance()
-        
-        if let socketURL = URL(string: "wss://test-im.soyou.io/websocket") {
-            if SocketManager.isConnected() {
-                self.updateSettings(auth, completion)
-            } else {
-                SocketManager.connect(socketURL) { (_, connected) in
-                    if connected {
-                        self.updateSettings(auth, completion)
-                    }
-                }
-            }
-        }
-    }
-    
-    func updateSettings(_ auth: Auth, _ completion: (()->())?) {
-        AuthSettingsManager.updatePublicSettings(auth, completion: { _ in
-            SocketManager.disconnect({ (_, _) in
-                completion?()
-            })
-        })
     }
 }

@@ -21,8 +21,8 @@ extension ChatViewController: ChatMessageCellProtocol {
     }
 
     func handleUsernameTapMessageCell(_ message: Message, view: UIView, recognizer: UIGestureRecognizer) {
-        guard let username = message.user?.username else { return }
-        AppManager.openDirectMessage(username: username)
+//        guard let username = message.user?.username else { return }
+//        RocketChatManager.openDirectMessage(username: username)
     }
 
     func openURL(url: URL) {
