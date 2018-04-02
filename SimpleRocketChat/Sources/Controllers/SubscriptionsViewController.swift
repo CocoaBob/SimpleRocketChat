@@ -13,7 +13,7 @@ public final class SubscriptionsViewController: UIViewController {
     
     // Class methods
     public static var shared: SubscriptionsViewController? {
-        return UIStoryboard(name: "Subscriptions", bundle: nil).instantiateViewController(withIdentifier: "SubscriptionsViewController") as? SubscriptionsViewController
+        return UIStoryboard(name: "Subscriptions", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "SubscriptionsViewController") as? SubscriptionsViewController
     }
 
     @IBOutlet weak var tableView: UITableView!

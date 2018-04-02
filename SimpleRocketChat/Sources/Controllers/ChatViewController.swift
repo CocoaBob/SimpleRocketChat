@@ -15,7 +15,7 @@ final class ChatViewController: SLKTextViewController {
     
     // Class methods
     static var shared: ChatViewController? {
-         return UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController
+         return UIStoryboard(name: "Chat", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController
     }
 
     var activityIndicator: LoaderView!

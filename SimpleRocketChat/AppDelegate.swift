@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup AuthManager
         RocketChatManager.signIn(socketServerAddress: "wss://test-im.soyou.io/websocket",
                           userId: "JAqNKpngJ8ub4egBM",
-                          token: "pRVKliKQGUbZBRupQr26AGI5MsAyJPfaovPWEvF2Jq7") {
+                          token: "RGHqRpNkN2d1Y15xrudGK0EUYr9w2yAQAiRiB0wJVr-") { success in
             self.showHomeViewController()
             
             // Try create a direct message

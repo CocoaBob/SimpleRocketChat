@@ -49,7 +49,7 @@ public struct RocketChatManager {
 // MARK: - Sign In
 public extension RocketChatManager {
     
-    public static func signIn(socketServerAddress: String, userId: String, token: String, completion: (()->())?) {
+    public static func signIn(socketServerAddress: String, userId: String, token: String, completion: ((_ success: Bool)->())?) {
         // Authentication
         var auth = Auth()
         
@@ -84,11 +84,17 @@ public extension RocketChatManager {
         }
         if let socketURL = URL(string: socketServerAddress) {
             if SocketManager.isConnected() {
-                updateSettings(auth, completion)
+                updateSettings(auth) {
+                    completion?(true)
+                }
             } else {
                 SocketManager.connect(socketURL) { (_, connected) in
                     if connected {
-                        updateSettings(auth, completion)
+                        updateSettings(auth) {
+                            completion?(true)
+                        }
+                    } else {
+                        completion?(false)
                     }
                 }
             }

@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.platform          = :ios, '10.0'
   s.source_files      = "SimpleRocketChat/Sources/**/*.swift"
   s.resource          = "SimpleRocketChat/Resources/Assets.xcassets"
+  s.resources         = "SimpleRocketChat/**/*.{png,xib,storyboard}"
   s.framework         = "Foundation", "UIKit", "UserNotifications"
   s.requires_arc      = true
   s.xcconfig          = { 'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/SimpleRocketChat/ModuleMap/CommonCrypto' } 
