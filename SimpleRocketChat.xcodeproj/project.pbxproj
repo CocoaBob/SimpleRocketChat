@@ -10,6 +10,7 @@
 		450CB5ED2064565600A570DB /* Subscriptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450CB5EC2064565600A570DB /* Subscriptions.storyboard */; };
 		452E30D420631DF6008D33FC /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */; };
 		453F685B206A98400003D3C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F685A206A98400003D3C9 /* AppDelegate.swift */; };
+		45C87448207B219900455858 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45C87446207B219900455858 /* Localizable.strings */; };
 		45D4D0D9205F06D7000CE769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D4205F06D6000CE769 /* Assets.xcassets */; };
 		45D4D0DA205F06D7000CE769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */; };
 		45D4D424205F0DC0000CE769 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D4D3FD205F0DC0000CE769 /* Attachment.swift */; };
@@ -211,6 +212,16 @@
 		452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		453F685A206A98400003D3C9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SimpleRocketChat/AppDelegate.swift; sourceTree = "<group>"; };
 		4579E82F205E2A0400EDFE4C /* SimpleRocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C87447207B219900455858 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C87449207B21EC00455858 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C8744A207B21EE00455858 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C8744B207B21F100455858 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C8744C207B21F300455858 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C8744D207B21F400455858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C8744E207B21F700455858 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C8744F207B21F900455858 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C87450207B21FA00455858 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		45C87451207B220A00455858 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		45D4D0D2205F06D6000CE769 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D4D0D4205F06D6000CE769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -452,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				45D4D0D4205F06D6000CE769 /* Assets.xcassets */,
+				45C87446207B219900455858 /* Localizable.strings */,
 				45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
@@ -1033,6 +1045,7 @@
 				fr,
 				pl,
 				"pt-BR",
+				"zh-Hans",
 			);
 			mainGroup = 4579E826205E2A0400EDFE4C;
 			productRefGroup = 4579E830205E2A0400EDFE4C /* Products */;
@@ -1059,6 +1072,7 @@
 				45D4D561205F2F7F000CE769 /* Chat.storyboard in Resources */,
 				45D4D5BF205F305D000CE769 /* ChatMessageURLView.xib in Resources */,
 				45D4D573205F303C000CE769 /* ChatTitleView.xib in Resources */,
+				45C87448207B219900455858 /* Localizable.strings in Resources */,
 				45D4D5CC205F305D000CE769 /* ReusableViewText.xib in Resources */,
 				45D4D5AF205F305D000CE769 /* ChatLoaderCell.xib in Resources */,
 				45D4D5B6205F305D000CE769 /* ChatMessageDaySeparator.xib in Resources */,
@@ -1345,6 +1359,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		45C87446207B219900455858 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45C87447207B219900455858 /* en */,
+				45C87449207B21EC00455858 /* cs */,
+				45C8744A207B21EE00455858 /* de */,
+				45C8744B207B21F100455858 /* el */,
+				45C8744C207B21F300455858 /* es */,
+				45C8744D207B21F400455858 /* Base */,
+				45C8744E207B21F700455858 /* fr */,
+				45C8744F207B21F900455858 /* pl */,
+				45C87450207B21FA00455858 /* pt-BR */,
+				45C87451207B220A00455858 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4579E83F205E2A0400EDFE4C /* Debug */ = {
