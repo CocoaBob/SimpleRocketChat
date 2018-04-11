@@ -9,9 +9,8 @@ Pod::Spec.new do |s|
   s.source            = { :git => "https://github.com/CocoaBob/SimpleRocketChat.git", :tag => "v#{s.version}" }
   s.platform          = :ios, '10.0'
   s.source_files      = "SimpleRocketChat/Sources/**/*.swift"
-  s.resource          = "SimpleRocketChat/Resources/Assets.xcassets"
   s.resources         = "SimpleRocketChat/**/*.{png,xib,storyboard}"
-  s.resource_bundle = { "SimpleRocketChat" => ["SimpleRocketChat/Resources/*.lproj/*.strings"] }
+  s.resource_bundle = { "SimpleRocketChat" => ["SimpleRocketChat/Resources/*.lproj/*.strings", "SimpleRocketChat/Resources/Assets.xcassets"] }
   s.framework         = "Foundation", "UIKit", "UserNotifications"
   s.requires_arc      = true
   s.xcconfig          = { 'SWIFT_INCLUDE_PATHS' => '${PODS_ROOT}/SimpleRocketChat/ModuleMap/CommonCrypto' } 
