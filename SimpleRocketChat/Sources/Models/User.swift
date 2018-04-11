@@ -50,14 +50,10 @@ extension User {
     }
 
     func displayName() -> String {
-        guard let settings = AuthSettingsManager.settings else {
-            return username ?? ""
-        }
-
-        if let name = name {
-            if settings.useUserRealName && !name.isEmpty {
-                return name
-            }
+        if let name = name,
+//            AuthSettingsManager.settings?.useUserRealName == true,
+            !name.isEmpty {
+            return name
         }
 
         return username ?? ""
