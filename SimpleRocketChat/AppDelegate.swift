@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup window
         self.setupWindow()
         
+        RocketChatManager.appDidFinishLaunchingWithOptions(launchOptions)
+        
         // Setup AuthManager
         RocketChatManager.signIn(socketServerAddress: "wss://test-im.soyou.io/websocket",
                           userId: "JWR67MfWMyKvyN2Yf",
@@ -52,28 +54,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: AppDelegate LifeCycle
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        let center = UNUserNotificationCenter.current()
-        center.removeAllDeliveredNotifications()
+        RocketChatManager.appDidBecomeActive()
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        SubscriptionManager.updateUnreadApplicationBadge()
-        
-        if AuthManager.isAuthenticated() != nil {
-            UserManager.setUserPresence(status: .away) { (_) in
-                SocketManager.disconnect({ (_, _) in })
-            }
-        }
+        RocketChatManager.appDidEnterBackground()
     }
     
     // MARK: Remote Notification
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        UserDefaults.standard.set(deviceToken.hexString, forKey: PushManager.kDeviceTokenKey)
+        RocketChatManager.appDidRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        Log.debug("Fail to register for notification: \(error)")
+        RocketChatManager.appDidFailToRegisterForRemoteNotificationsWithError(error)
     }
 }
 
