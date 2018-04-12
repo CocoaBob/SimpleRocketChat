@@ -12,9 +12,7 @@ import RealmSwift
 public final class SubscriptionsViewController: UIViewController {
     
     // Class methods
-    public static var shared: SubscriptionsViewController? {
-        return UIStoryboard(name: "Subscriptions", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "SubscriptionsViewController") as? SubscriptionsViewController
-    }
+    public static let shared = UIStoryboard(name: "Subscriptions", bundle: Bundle(for: SubscriptionsViewController.self)).instantiateViewController(withIdentifier: "SubscriptionsViewController") as? SubscriptionsViewController
 
     @IBOutlet weak var tableView: UITableView!
 
