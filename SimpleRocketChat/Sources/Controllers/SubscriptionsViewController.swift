@@ -109,14 +109,9 @@ extension SubscriptionsViewController: UITableViewDelegate {
         return nil
     }
 
-    public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if let selected = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: selected, animated: true)
-        }
-        return indexPath
-    }
-
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         guard let subscription = subscription(for: indexPath) else { return }
 
         if let chatVC = ChatViewController.shared {
@@ -129,9 +124,5 @@ extension SubscriptionsViewController: UITableViewDelegate {
         guard let cell = cell as? SubscriptionCell else { return }
         guard let subscription = cell.subscription else { return }
         guard let selectedSubscription = ChatViewController.shared?.subscription else { return }
-
-        if subscription.identifier == selectedSubscription.identifier {
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
     }
 }
