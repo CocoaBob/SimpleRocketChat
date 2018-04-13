@@ -188,6 +188,9 @@ public final class ChatViewController: SLKTextViewController {
         }
 
         setupReplyView()
+        
+        self.textInputbar.textView.keyboardType = .default
+        self.textInputbar.textView.enablesReturnKeyAutomatically = false
     }
 
     override public func viewWillAppear(_ animated: Bool) {
