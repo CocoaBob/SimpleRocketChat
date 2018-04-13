@@ -235,7 +235,7 @@ public final class ChatViewController: SLKTextViewController {
         textView.registerMarkdownFormattingSymbol("```", withTitle: "Preformatted")
         textView.registerMarkdownFormattingSymbol(">", withTitle: "Quote")
 
-        registerPrefixes(forAutoCompletion: ["@", "#", "/", ":"])
+//        registerPrefixes(forAutoCompletion: ["@", "#", "/", ":"])
     }
 
     fileprivate func setupScrollToBottomButton() {
