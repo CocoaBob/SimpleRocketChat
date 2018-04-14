@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup AuthManager
         RocketChatManager.signIn(socketServerAddress: "wss://test-im.soyou.io/websocket",
-                          userId: "Frcc634xkb5Hc9Q39",
-                          token: "1rr1ITGZnjFcRhxdqlT4OkMBUIdUDW9_aEIPkwttI4k") { success in
+                          userId: "W29Buw6gktnkqkZ3s",
+                          token: "kFv6U1eSViawlrohYyx56OJsjWGoduC7LimxKVzKR4Y") { success in
             self.showHomeViewController()
             
 //            // Try create a direct message
@@ -61,6 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RocketChatManager.appDidEnterBackground()
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+        if RocketChatManager.handleDeepLink(url, completion: { self.showChatViewController() }) {
+            return true
+        }
+        return false
+    }
+    
     // MARK: Remote Notification
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -88,8 +95,10 @@ extension AppDelegate {
     }
     
     func showChatViewController() {
-        if let vc = ChatViewController.shared {
-            self.window?.rootViewController = UINavigationController(rootViewController: vc)
+        if let navC = self.window?.rootViewController as? UINavigationController,
+            let chatVC = ChatViewController.shared,
+            navC.topViewController != chatVC {
+            navC.pushViewController(chatVC, animated: true)
         }
     }
 }
