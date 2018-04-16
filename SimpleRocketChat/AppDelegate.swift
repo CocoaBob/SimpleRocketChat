@@ -28,24 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup AuthManager
         RocketChatManager.signIn(socketServerAddress: "wss://test-im.soyou.io/websocket",
                           userId: "W29Buw6gktnkqkZ3s",
-                          token: "kFv6U1eSViawlrohYyx56OJsjWGoduC7LimxKVzKR4Y") { success in
+                          token: "kFv6U1eSViawlrohYyx56OJsjWGoduC7LimxKVzKR4Y") {
             self.showHomeViewController()
-            
-//            // Try create a direct message
-//            func createDirectMessage() {
-//                RocketChatManager.openDirectMessage(username: "jiyun") {
-//                    if let chatVC = ChatViewController.shared {
-//                        (self.window?.rootViewController as? UINavigationController)?.pushViewController(chatVC, animated: true)
-//                    }
-//                }
-//            }
-//            if !SocketManager.isConnected() {
-//                SocketManager.reconnect({
-//                    createDirectMessage()
-//                })
-//            } else {
-//                createDirectMessage()
-//            }
         }
         
         return true

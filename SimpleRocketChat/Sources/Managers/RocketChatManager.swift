@@ -78,6 +78,7 @@ public extension RocketChatManager {
         
         SocketManager.reconnect() {
             SubscriptionsViewController.shared?.subscribeModelChanges()
+            ChatViewController.shared?.subscription = nil
             completion?()
         }
     }
