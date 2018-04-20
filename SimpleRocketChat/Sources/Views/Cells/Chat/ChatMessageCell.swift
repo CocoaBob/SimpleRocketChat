@@ -85,7 +85,7 @@ final class ChatMessageCell: UICollectionViewCell {
         let attributedString = MessageTextCacheManager.shared.message(for: message)
         let isMyMessage = message.user?.identifier == AuthManager.currentUser()?.identifier
         var total = (CGFloat)(sequential ? 0 : 31) // Date
-        total += isMyMessage ? 8 : 21 // Name
+        total += sequential ? 0 : (isMyMessage ? 8 : 21) // Name
         total += message.reactions.count > 0 ? 40 : 0
         if attributedString?.string ?? "" != "" {
             total += (attributedString?.heightForView(withWidth: fullWidth - 55) ?? 0)
@@ -124,7 +124,7 @@ final class ChatMessageCell: UICollectionViewCell {
         
         // Make sure total height >= avatar size
         let minHeight = (CGFloat)(sequential ? 36 : 67)
-        if total < minHeight { // Avatar size
+        if !sequential && total < minHeight { // Avatar size
             total = minHeight
         }
 
@@ -148,14 +148,14 @@ final class ChatMessageCell: UICollectionViewCell {
             labelDateMarginTopConstraint.constant = sequential ? 0 : 5
             labelDateHeightConstraint.constant = sequential ? 0 : 21
             labelDateMarginBottomConstraint.constant = sequential ? 0 : 5
-            labelUsernameHeightConstraint.constant = (sequential || isMyMessage) ? 8 : 21
+            labelUsernameHeightConstraint.constant = sequential ? 0 : (isMyMessage ? 8 : 21)
             avatarContainerHeightConstraint.constant = sequential ? 0 : 36
         }
     }
     
     var isMyMessage: Bool = false {
         didSet {
-            labelUsernameHeightConstraint.constant = (sequential || isMyMessage) ? 8 : 21
+            labelUsernameHeightConstraint.constant = sequential ? 0 : (isMyMessage ? 8 : 21)
             avatarLeadingConstraint.isActive = !isMyMessage
             avatarTrailingConstraint.isActive = isMyMessage
             mediaLeadingConstraint.constant = isMyMessage ? 8 : 48
