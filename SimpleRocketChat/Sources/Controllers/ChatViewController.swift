@@ -150,6 +150,7 @@ public final class ChatViewController: SLKTextViewController {
         super.viewDidLoad()
         
         self.collectionView?.backgroundColor = .clear
+        self.buttonScrollToBottom.setImage(UIImage(namedInBundle: "Arrow Down"), for: .normal)
         
         self.hidesBottomBarWhenPushed = true
 
