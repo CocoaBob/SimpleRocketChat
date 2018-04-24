@@ -178,6 +178,7 @@ final class ChatMessageCell: UICollectionViewCell {
             messageRightMarginConstraint.constant = isMyMessage ? 14 : 12
             messageLeftFixConstraint.isActive = !isMyMessage
             messageRightFixConstraint.isActive = isMyMessage
+            mediaViews.alignment = isMyMessage ? .trailing : .leading
         }
     }
 
