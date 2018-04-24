@@ -122,7 +122,6 @@ public final class ChatViewController: SLKTextViewController {
             resetUnreadSeparator()
 
             updateSubscriptionInfo()
-            markAsRead()
             typingIndicatorView?.dismissIndicator()
 
             if let oldValue = oldValue, oldValue.identifier != subscription.identifier {
@@ -205,6 +204,7 @@ public final class ChatViewController: SLKTextViewController {
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         isVisible = true
+        markAsRead()
     }
     
     override public func viewDidDisappear(_ animated: Bool) {
