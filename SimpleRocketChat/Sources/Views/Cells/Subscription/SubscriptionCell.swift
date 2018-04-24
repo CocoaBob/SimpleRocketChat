@@ -54,8 +54,9 @@ final class SubscriptionCell: UITableViewCell {
         }
 
         labelUnread.alpha = subscription.unread > 0 ? 1 : 0
-        labelUnreadWidth.constant = subscription.unread > 0 ? 28 : 0
+        labelUnreadWidth.constant = subscription.unread > 99 ? 30 : (subscription.unread > 9 ? 23 : (subscription.unread > 0 ? 16 : 0))
         labelUnread.text = "\(subscription.unread)"
+        labelUnread.layer.cornerRadius = 8
     }
 }
 
