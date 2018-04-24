@@ -21,7 +21,7 @@ public final class SubscriptionsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var delegate: SubscriptionsViewControllerDelegate?
+    public var delegate: SubscriptionsViewControllerDelegate?
 
     var subscriptions = [Subscription]()
     var subscriptionResults: Results<Subscription>?
