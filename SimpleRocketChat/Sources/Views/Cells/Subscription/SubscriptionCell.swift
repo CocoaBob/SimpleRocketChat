@@ -28,11 +28,7 @@ final class SubscriptionCell: UITableViewCell {
 
     @IBOutlet weak var imageViewAvatar: UIImageView!
     @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelUnread: UILabel! {
-        didSet {
-            labelUnread.layer.cornerRadius = 2
-        }
-    }
+    @IBOutlet weak var labelUnread: UILabel!
     @IBOutlet weak var labelUnreadWidth: NSLayoutConstraint!
 
     func updateSubscriptionInformatin() {
@@ -56,7 +52,6 @@ final class SubscriptionCell: UITableViewCell {
         labelUnread.alpha = subscription.unread > 0 ? 1 : 0
         labelUnreadWidth.constant = subscription.unread > 99 ? 30 : (subscription.unread > 9 ? 23 : (subscription.unread > 0 ? 16 : 0))
         labelUnread.text = "\(subscription.unread)"
-        labelUnread.layer.cornerRadius = 8
     }
 }
 
