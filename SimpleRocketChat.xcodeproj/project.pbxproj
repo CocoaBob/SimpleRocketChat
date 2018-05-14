@@ -10,7 +10,7 @@
 		450CB5ED2064565600A570DB /* Subscriptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 450CB5EC2064565600A570DB /* Subscriptions.storyboard */; };
 		452E30D420631DF6008D33FC /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */; };
 		453F685B206A98400003D3C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F685A206A98400003D3C9 /* AppDelegate.swift */; };
-		459E025F20A5EFBB00FA009B /* BannedKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E025E20A5EFBB00FA009B /* BannedKeywords.swift */; };
+		459E025F20A5EFBB00FA009B /* CensorshipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E025E20A5EFBB00FA009B /* CensorshipManager.swift */; };
 		45C87448207B219900455858 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45C87446207B219900455858 /* Localizable.strings */; };
 		45D4D0D9205F06D7000CE769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D4205F06D6000CE769 /* Assets.xcassets */; };
 		45D4D0DA205F06D7000CE769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D4D0D5205F06D6000CE769 /* LaunchScreen.storyboard */; };
@@ -213,7 +213,7 @@
 		452E30D320631DF6008D33FC /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		453F685A206A98400003D3C9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SimpleRocketChat/AppDelegate.swift; sourceTree = "<group>"; };
 		4579E82F205E2A0400EDFE4C /* SimpleRocketChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRocketChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		459E025E20A5EFBB00FA009B /* BannedKeywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannedKeywords.swift; sourceTree = "<group>"; };
+		459E025E20A5EFBB00FA009B /* CensorshipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CensorshipManager.swift; sourceTree = "<group>"; };
 		45C87447207B219900455858 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45C87449207B21EC00455858 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45C8744A207B21EE00455858 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 		459E025D20A5EFA600FA009B /* Soyou */ = {
 			isa = PBXGroup;
 			children = (
-				459E025E20A5EFBB00FA009B /* BannedKeywords.swift */,
+				459E025E20A5EFBB00FA009B /* CensorshipManager.swift */,
 			);
 			name = Soyou;
 			path = SimpleRocketChat/Sources/Soyou;
@@ -1307,7 +1307,7 @@
 				45D4D5AE205F305D000CE769 /* ChatLoaderCell.swift in Sources */,
 				45D4D4B1205F0E43000CE769 /* InfoRequest.swift in Sources */,
 				45D4D5AC205F305D000CE769 /* ChatDirectMessageHeaderCell.swift in Sources */,
-				459E025F20A5EFBB00FA009B /* BannedKeywords.swift in Sources */,
+				459E025F20A5EFBB00FA009B /* CensorshipManager.swift in Sources */,
 				45D4D515205F10CF000CE769 /* Alert.swift in Sources */,
 				45D4D575205F303C000CE769 /* KeyboardFrameView.swift in Sources */,
 				45D4D4F3205F0EA0000CE769 /* MessageTextCacheManager.swift in Sources */,
