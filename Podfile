@@ -11,7 +11,7 @@ target 'SimpleRocketChat' do
   # UI
   pod "SlackTextViewController", :git => 'https://github.com/rafaelks/SlackTextViewController.git'
   pod "MobilePlayer"
-  pod "SimpleImageViewer", :git => 'https://github.com/cardoso/SimpleImageViewer.git'
+  pod "SimpleImageViewer", :git => 'https://github.com/CocoaBob/SimpleImageViewer.git', :commit => 'b204125b9bb39949c380fd3bcc756312d2680d36'
   
   # Text Processing
   pod "RCMarkdownParser", :git => 'https://github.com/RocketChat/RCMarkdownParser.git'

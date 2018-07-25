@@ -14,9 +14,8 @@ PODS:
   - SDWebImage/GIF (4.3.3):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
-  - SimpleImageViewer (1.0.2):
-    - SDWebImage (~> 4)
-    - SDWebImage/GIF
+  - SimpleImageViewer (1.2.0):
+    - FLAnimatedImage
   - SlackTextViewController (1.9.6)
   - Starscream (3.0.4)
   - SwiftyJSON (4.0.0)
@@ -28,7 +27,7 @@ DEPENDENCIES:
   - RealmSwift
   - SDWebImage (~> 4)
   - SDWebImage/GIF
-  - SimpleImageViewer (from `https://github.com/cardoso/SimpleImageViewer.git`)
+  - SimpleImageViewer (from `https://github.com/CocoaBob/SimpleImageViewer.git`, commit `b204125b9bb39949c380fd3bcc756312d2680d36`)
   - SlackTextViewController (from `https://github.com/rafaelks/SlackTextViewController.git`)
   - Starscream
   - SwiftyJSON
@@ -37,7 +36,8 @@ EXTERNAL SOURCES:
   RCMarkdownParser:
     :git: https://github.com/RocketChat/RCMarkdownParser.git
   SimpleImageViewer:
-    :git: https://github.com/cardoso/SimpleImageViewer.git
+    :commit: b204125b9bb39949c380fd3bcc756312d2680d36
+    :git: https://github.com/CocoaBob/SimpleImageViewer.git
   SlackTextViewController:
     :git: https://github.com/rafaelks/SlackTextViewController.git
 
@@ -46,8 +46,8 @@ CHECKOUT OPTIONS:
     :commit: 8d90207815f563f9e1a1a5b7a0a8fe1c1c94ff34
     :git: https://github.com/RocketChat/RCMarkdownParser.git
   SimpleImageViewer:
-    :commit: 0398657e933c8c8f06831a93d2cc96610e18a4f2
-    :git: https://github.com/cardoso/SimpleImageViewer.git
+    :commit: b204125b9bb39949c380fd3bcc756312d2680d36
+    :git: https://github.com/CocoaBob/SimpleImageViewer.git
   SlackTextViewController:
     :commit: 944b7cc4de734638cdefdecb9c7d7846fc3ab252
     :git: https://github.com/rafaelks/SlackTextViewController.git
@@ -60,11 +60,11 @@ SPEC CHECKSUMS:
   Realm: 7d74ad6c5020432f58fe5e1df90bb6d97b2c7fef
   RealmSwift: b2fa31a09c22e246026766557405505eeaad2b01
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
-  SimpleImageViewer: 329a155b04fcb93c5da0e296044250ad113c3158
+  SimpleImageViewer: 6ed0d2acf7c166a5b4e795bccc7b9ea1b225ff9b
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Starscream: f5da93fe6984c77b694366bf7299b7dc63a76f26
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: d96030d9fca4ad43582244d9616ef72f188dde65
+PODFILE CHECKSUM: 14562bdea04bf00debb5c5b07d7e4fe2de0b0515
 
 COCOAPODS: 1.4.0
