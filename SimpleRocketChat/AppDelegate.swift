@@ -26,9 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RocketChatManager.appDidFinishLaunchingWithOptions(launchOptions)
         
         // Setup AuthManager
-        RocketChatManager.signIn(socketServerAddress: "wss://test-im.soyou.io/websocket",
-                          userId: "MYSGTr4wdjJ66snr6",
-                          token: "4LMFqfWOOtPvtiZHSI_KzkXPMUHgYKm_vFyX9084Y6r") {
+        RocketChatManager.signIn(socketServerAddress: "wss://im.soyou.io/websocket",
+                          userId: "6oZRoRrr9ygJiGMZN",
+                          token: "ui0u2mecjjBuG9S7v6oUnr8fClwpvTz_2w9rXt1uEoB") {
             self.showHomeViewController()
         }
         

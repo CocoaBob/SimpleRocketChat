@@ -9,12 +9,12 @@ target 'SimpleRocketChat' do
   pod "SwiftyJSON"
 
   # UI
-  pod "SlackTextViewController", :git => 'https://github.com/rafaelks/SlackTextViewController.git'
-  pod "MobilePlayer"
+  pod "SlackTextViewController", :git => 'https://github.com/CocoaBob/SlackTextViewController.git', :commit => '4542e7e2f545b92724954e4276fde9a672f63d92'
+  pod "MobilePlayer", :git => 'https://github.com/CocoaBob/mobileplayer-ios.git', :commit => '3f2d70ee1f6aeb1d1948ff360a150f2bfef6f013'
   pod "SimpleImageViewer", :git => 'https://github.com/CocoaBob/SimpleImageViewer.git', :commit => 'b204125b9bb39949c380fd3bcc756312d2680d36'
   
   # Text Processing
-  pod "RCMarkdownParser", :git => 'https://github.com/RocketChat/RCMarkdownParser.git'
+  pod "RCMarkdownParser", :git => 'https://github.com/CocoaBob/RCMarkdownParser.git', :branch => 'chore/swift-4', :commit => 'de5fb68a498259d53ceab6dc729a5a30770fef14'
 
   # Database
   pod "RealmSwift"
@@ -25,22 +25,3 @@ target 'SimpleRocketChat' do
   pod "Starscream"
   pod "ReachabilitySwift"
 end
-
-post_install do |installer|
-  swift4Targets = []
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.1'
-      if config.name == 'Debug'
-        config.build_settings['OTHER_SWIFT_FLAGS'] = ['$(inherited)', '-Onone']
-        config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
-      end
-    end
-    if swift4Targets.include? target.name
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.0'
-      end
-    end
-  end
-end
-
